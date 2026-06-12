@@ -1,0 +1,27 @@
+.sidebar{
+
+    width:220px;
+
+    height:100vh;
+
+    background:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:30px;
+
+    border-right:1px solid #eee;
+}
+
+.sidebar a{
+
+    text-decoration:none;
+
+    color:black;
+
+    font-size:18px;
+}

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: #DBEAFE;
+
+  --secondary: #1E293B;
+  --secondary-hover: #0F172A;
+  --secondary-light: #F1F5F9;
+
+  /* Neutrals / Backgrounds */
+  --bg-color: #F8FAFC;
+  --surface-color: #FFFFFF;
+  --surface-hover: #F8FAFC;
+
+  /* Typography Colors */
+  --text-main: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
+  /* Feedback Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --error-bg: #FEF2F2;
+
+  /* Borders & Shadows */
+  --border-color: #E2E8F0;
+  --border-focus: #BFDBFE;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+}
+
+/* Dark Mode Theme Tokens */
+.dark {
+  --bg-color: #090D16;
+  --surface-color: #111827;
+  --surface-hover: #1F2937;
+  --text-main: #F9FAFB;
+  --text-secondary: #E5E7EB;
+  --text-muted: #6B7280;
+  --border-color: #1F2937;
+  --border-focus: #2563EB;
+  --primary-light: rgba(37, 99, 235, 0.15);
+  --secondary-light: #1F2937;
+  --secondary-hover: #374151;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Base Form Elements Reset */
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* ── Skeletons ── */
+.ui-skeleton {
+  background: #E2E8F0;
+  border-radius: var(--radius-sm);
+  animation: ui-pulse 1.5s ease-in-out infinite;
+}
+.dark .ui-skeleton {
+  background: #1F2937;
+}
+.ui-skeleton-text-container {
+  display: flex;
+  flex-direction: column;
+}
+.ui-skeleton-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+@keyframes ui-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ── Toast Container & Items ── */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999;
+  pointer-events: none;
+}
+.toast-item {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-lg);
+  min-width: 300px;
+  max-width: 420px;
+  animation: toast-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  position: relative;
+}
+.toast-message {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-main);
+  flex: 1;
+}
+.toast-close {
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+.toast-close:hover {
+  color: var(--text-main);
+}
+.toast-icon {
+  flex-shrink: 0;
+}
+.toast-icon.success { color: var(--success); }
+.toast-icon.warning { color: var(--warning); }
+.toast-icon.error { color: var(--error); }
+.toast-icon.info { color: var(--primary); }
+
+@keyframes toast-in {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
