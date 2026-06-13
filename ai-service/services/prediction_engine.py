@@ -1,7 +1,6 @@
 import logging
 from typing import Dict, Any, List
 
-
 logger = logging.getLogger("ai_service")
 
 def predict_exam_performance(
