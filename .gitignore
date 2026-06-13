@@ -1,6 +1,46 @@
+# Dependencies
 node_modules/
+
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+
+# Environment
 .env
-_pycache_/
-*.log
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.iws
+*.iml
+*.ipr
+.DS_Store
+
+# Build outputs
 dist/
 build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Archives (never commit large binaries)
+*.zip
+*.tar.gz
+*.rar
